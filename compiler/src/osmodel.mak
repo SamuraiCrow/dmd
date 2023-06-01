@@ -38,6 +38,9 @@ ifeq (,$(OS))
   ifeq (SunOS,$(uname_S))
     OS:=solaris
   endif
+  ifeq (Haiku,$(uname_S))
+    OS:=haiku
+  endif
   ifeq (,$(OS))
     $(error Unrecognized or unsupported OS for uname: $(uname_S))
   endif

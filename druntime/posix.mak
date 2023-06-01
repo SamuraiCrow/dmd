@@ -56,7 +56,7 @@ endif
 
 # build with shared library support
 # (defaults to true on supported platforms, can be overridden w/ make SHARED=0)
-SHARED=$(if $(findstring $(OS),linux freebsd dragonflybsd),1,)
+SHARED=$(if $(findstring $(OS),linux freebsd dragonflybsd haiku),1,)
 
 LINKDL=$(if $(findstring $(OS),linux),-L-ldl,)
 
@@ -94,7 +94,7 @@ UTFLAGS:=-version=CoreUnittest -unittest -checkaction=context
 
 # Set PHOBOS_DFLAGS (for linking against Phobos)
 PHOBOS_PATH=../../phobos
-SHARED=$(if $(findstring $(OS),linux freebsd),1,)
+SHARED=$(if $(findstring $(OS),linux freebsd haiku),1,)
 ROOT_DIR := $(shell pwd)
 PHOBOS_DFLAGS=-conf= $(MODEL_FLAG) -I$(ROOT_DIR)/import -I$(PHOBOS_PATH) -L-L$(PHOBOS_PATH)/generated/$(OS)/$(BUILD)/$(MODEL) $(PIC)
 ifeq (1,$(SHARED))
